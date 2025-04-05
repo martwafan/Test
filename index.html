@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <title>Czy kochasz Maryś?</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin-top: 10px;
+    }
+    #wynik {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Czy kochasz Maryś?</h1>
+  <input type="text" id="odpowiedz" placeholder="Twoja odpowiedź...">
+  <br>
+  <button onclick="sprawdz()">Wyślij</button>
+  <div id="wynik"></div>
+
+  <script>
+    function sprawdz() {
+      const odp = document.getElementById("odpowiedz").value.toLowerCase();
+      const wynik = document.getElementById("wynik");
+
+      if (odp.includes("sesbian lex")) {
+        wynik.textContent = "Sesbian lex to potęga!";
+      } else if (odp.includes("tak") ||  (odp.includes("kocham")) {
+        wynik.textContent = "Wiedziałem, że kochasz!";
+      } else if (odp.includes("nie") || odp.includes("nie kocham")) {
+        wynik.textContent = "Kłamiesz. I tak kochasz.";
+      } else {
+        wynik.textContent = "Czyli kochasz. Dobrze wiedzieć!";
+      }
+    }
+  </script>
+</body>
+</html>
