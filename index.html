@@ -2,46 +2,83 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Czy kochasz Maryś?</title>
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Arial', sans-serif;
       text-align: center;
+      background-color: #f5f5f5;
       padding: 50px;
-      background-color: #ffe4ec;
+    }
+    h1 {
+      color: #333;
+      font-size: 28px;
     }
     input, button {
-      padding: 10px;
-      font-size: 16px;
-      margin-top: 10px;
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-top: 20px;
+      border-radius: 5px;
+      border: 2px solid #ccc;
+    }
+    input {
+      width: 60%;
+      margin-bottom: 20px;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
     }
     #wynik {
-      margin-top: 20px;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: bold;
+      margin-top: 30px;
+      color: #333;
+    }
+    #wynik.sesbian {
+      color: #f39c12;
+    }
+    #wynik.kocham {
+      color: #e74c3c;
+    }
+    #wynik.kłamstwo {
+      color: #8e44ad;
     }
   </style>
 </head>
 <body>
-  <h1>Czy kochasz Maryś?</h1>
-  <input type="text" id="odpowiedz" placeholder="Twoja odpowiedź...">
+  <h1>Czy kochasz Maryś, czy lubisz coś innego?</h1>
+  <input type="text" id="odpowiedz" placeholder="Napisz coś...">
   <br>
-  <button type="button" onclick="sprawdz()">Wyślij</button>
+  <button onclick="sprawdz()">Wyślij</button>
   <div id="wynik"></div>
 
   <script>
     function sprawdz() {
       const odp = document.getElementById("odpowiedz").value.toLowerCase();
       const wynik = document.getElementById("wynik");
+      
+      // Czyszczymy wynik przed nową odpowiedzią
+      wynik.textContent = '';
 
+      // Zasady odpowiadania
       if (odp.includes("sesbian lex")) {
         wynik.textContent = "Sesbian lex to potęga!";
+        wynik.className = "sesbian";  // Dodajemy specjalną klasę CSS
       } else if (odp.includes("tak") || (odp.includes("kocham")) {
         wynik.textContent = "Wiedziałem, że kochasz!";
+        wynik.className = "kocham";  // Klasa dla "kocham"
       } else if (odp.includes("nie") || odp.includes("nie kocham")) {
-        wynik.textContent = "Kłamiesz. I tak kochasz.";
+        wynik.textContent = "Kłamiesz! I tak kochasz!";
+        wynik.className = "kłamstwo";  // Klasa dla kłamstwa
       } else {
-        wynik.textContent = "Czyli kochasz. Dobrze wiedzieć!";
+        wynik.textContent = "Czyli kochasz. Dobrze wiedzieć! UWU";
+        wynik.className = "";  // Domyślny styl
       }
     }
   </script>
