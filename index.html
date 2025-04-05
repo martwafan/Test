@@ -23,7 +23,7 @@
   </style>
 </head>
 <body>
-  <h1>Czy kochasz, czy lubisz Maryś lub jakieś inne rzeczy?</h1>
+  <h1>Czy kochasz Maryś?</h1>
   <input type="text" id="odpowiedz" placeholder="Twoja odpowiedź...">
   <br>
   <button type="button" onclick="sprawdz()">Wyślij</button>
@@ -31,4 +31,19 @@
 
   <script>
     function sprawdz() {
-      const odp = document.getElementById("
+      const odp = document.getElementById("odpowiedz").value.toLowerCase();
+      const wynik = document.getElementById("wynik");
+
+      if (odp.includes("sesbian lex")) {
+        wynik.textContent = "Sesbian lex to potęga!";
+      } else if (odp.includes("tak") || (odp.includes("kocham")) {
+        wynik.textContent = "Wiedziałem, że kochasz!";
+      } else if (odp.includes("nie") || odp.includes("nie kocham")) {
+        wynik.textContent = "Kłamiesz. I tak kochasz.";
+      } else {
+        wynik.textContent = "Czyli kochasz. Dobrze wiedzieć!";
+      }
+    }
+  </script>
+</body>
+</html>
